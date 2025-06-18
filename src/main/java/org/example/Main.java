@@ -31,16 +31,19 @@ public class Main implements Constants{
 //            i = (i + 1) % KILL_TIME;
         }
     }
-    private static Brain buildRandomBrain() {
+    private static SimpleBrain buildRandomBrain() {
+        int hiddenNodeNumber = 3;
+        int inputNodeNumber = 1;
         byte[] nodeGenes = new byte[] {inputNode, hiddenNode, hiddenNode, hiddenNode, moveLeftNode, moveUpNode, moveRightNode, moveDownNode, moveRandomNode};
-        Connection[] connections = new Connection[random.nextInt(18)];
-        int node0Connections = Math.min(random.nextInt(nodeGenes.length - 1), connections.length);
-        for (int i = 0; i < node0Connections; i++) {
-            connections[i] = new Connection(0, random.nextInt(1, nodeGenes.length), random.nextDouble(weightMin, weightMax), random.nextBoolean(), i);
+        int outputNodeNumber = (nodeGenes.length - hiddenNodeNumber) - inputNodeNumber;
+        Connection[] connections = new Connection[random.nextInt(hiddenNodeNumber * outputNodeNumber + inputNodeNumber * (hiddenNodeNumber + outputNodeNumber))];
+        int inputNodesConnections = Math.min(random.nextInt(1, nodeGenes.length - inputNodeNumber), connections.length);
+        for (int i = 0; i < inputNodesConnections; i++) {
+            connections[i] = new Connection(random.nextInt(inputNodeNumber), random.nextInt(inputNodeNumber, nodeGenes.length), random.nextDouble(weightMin, weightMax), random.nextDouble() < 0.8, i);
         }
-        for (int i = node0Connections; i < connections.length; i++) {
-            connections[i] = new Connection(random.nextInt(1, 4), random.nextInt(4, nodeGenes.length), random.nextDouble(weightMin, weightMax), random.nextBoolean(), i);
+        for (int i = inputNodesConnections; i < connections.length; i++) {
+            connections[i] = new Connection(random.nextInt(inputNodeNumber, inputNodeNumber + hiddenNodeNumber), random.nextInt(inputNodeNumber + hiddenNodeNumber, nodeGenes.length), random.nextDouble(weightMin, weightMax), random.nextDouble() < 0.8, i);
         }
-        return new Brain(nodeGenes, connections);
+        return new SimpleBrain(nodeGenes, connections);
     }
 }

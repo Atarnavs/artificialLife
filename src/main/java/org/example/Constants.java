@@ -1,13 +1,13 @@
 package org.example;
 
 public interface Constants {
-    byte inputNode = 0;
-    byte hiddenNode = 1;
-    byte moveLeftNode = 2;
-    byte moveUpNode = 3;
-    byte moveRightNode = 4;
-    byte moveDownNode = 5;
-    byte moveRandomNode = 6;
+    byte inputNode = -1;
+    byte hiddenNode = 0;
+    byte moveLeftNode = 1;
+    byte moveUpNode = 2;
+    byte moveRightNode = 3;
+    byte moveDownNode = 4;
+    byte moveRandomNode = 5;
     double weightMax = 5.0;
     double weightMin = -5.0;
     double StartingEnergy = 10_000.0;

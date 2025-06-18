@@ -22,7 +22,7 @@ public class Environment implements Constants{
     }
     public void updateEntities() {
         for (Entity entity: entities) {
-            entity.act(random.nextDouble(weightMin, weightMax));
+            entity.act(entity.getX() + entity.getY());
         }
     }
     public void reproduce() {

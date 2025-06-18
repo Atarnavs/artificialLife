@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d9581d7-056e-4bb7-a96a-16f72f10d4e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Brain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Connection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Return.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Visualisation.java" afterDir="false" />
+    <list default="true" id="4d9581d7-056e-4bb7-a96a-16f72f10d4e0" name="Changes" comment="They jitter around...">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Functions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SimpleBrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Brain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +43,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/tarna/Fun Projects/ArtificialLifeSimulator",
-    "onboarding.tips.debug.path": "C:/Users/tarna/Fun Projects/ArtificialLifeSimulator/src/main/java/org/example/Main.java"
+    "onboarding.tips.debug.path": "C:/Users/tarna/Fun Projects/ArtificialLifeSimulator/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RunManager">
@@ -85,7 +86,20 @@
       <option name="presentableId" value="Default" />
       <updated>1750130646117</updated>
     </task>
+    <task id="LOCAL-00001" summary="They jitter around...">
+      <option name="closed" value="true" />
+      <created>1750163336720</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750163336720</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="They jitter around..." />
+    <option name="LAST_COMMIT_MESSAGE" value="They jitter around..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
