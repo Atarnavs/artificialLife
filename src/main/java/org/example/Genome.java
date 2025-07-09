@@ -11,7 +11,7 @@ public class Genome {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(Arrays.deepHashCode(simplify()));
+        return Objects.hash(simplify());
     }
     @Override
     public boolean equals(Object o) {
