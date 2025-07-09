@@ -1,7 +1,10 @@
 package org.example;
 
 public interface Constants {
-    byte inputNode = -1;
+    byte biasNode = -4;
+    byte oscillatorNode = -3;
+    byte yInputNode = -2;
+    byte xInputNode = -1;
     byte hiddenNode = 0;
     byte moveLeftNode = 1;
     byte moveUpNode = 2;
@@ -12,10 +15,22 @@ public interface Constants {
     double weightMin = -5.0;
     double StartingEnergy = 10_000.0;
     double StepCost = 10.0;
-    int SIZE = 1_000;
-    long TIME_STEP = 33;
+    int inputNodes = 3;
+    int WORLD_SIZE = 128;
+    int ENLARGEMENT_FACTOR = 7;
+    int SCREEN_SIZE = WORLD_SIZE * ENLARGEMENT_FACTOR;
+    long TIME_STEP = 1;
     int KILL_TIME = 100;
-    int KILL_X = 500;
-    int KILL_Y = 0;
-    int NUMBER_OF_ENTITIES = 300;
+    int KILL_X_LEFT = (int) (WORLD_SIZE * 0.1);
+    int KILL_Y_DOWN = (int) (WORLD_SIZE * 0.0);
+    int KILL_X_RIGHT = (int) (WORLD_SIZE * 0.0);
+    int KILL_Y_UP = (int) (WORLD_SIZE * 0.0);
+    int NUMBER_OF_ENTITIES = 1_000;
+    double weightUpdateChance = 0.0004;
+    double weightUpdateValue = 0.1;
+    double disableChance = 0.00009;
+    double nodeInsertionChance = 0.000025;
+    double newConnectionChance = 0.0001;
+    double chanceOfWorkingConnection = 0.8;
+    double bias = 5.0;
 }

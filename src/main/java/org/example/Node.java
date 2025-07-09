@@ -26,24 +26,18 @@ public class Node {
     }
     public void excite() {
         if (inConnections == signalsCounter) {
-            setIn(Math.tanh(getIn()));
-            for (int i = 0; i < out.size(); i++) {
-                out.get(i).updateIn(weights.get(i) * getIn());
-                out.get(i).excite();
-            }
+            double out = Math.tanh(getIn());
+            setIn(0.0);
             resetSignalsCounter();
-        }
-    }
-    public void cleanse() {
-        setIn(0);
-        resetSignalsCounter();
-        for (Node out: this.out) {
-            out.cleanse();
+            for (int i = 0; i < this.out.size(); i++) {
+                this.out.get(i).updateIn(weights.get(i) * out);
+                this.out.get(i).excite();
+            }
         }
     }
     public void updateIn(double in) {
         this.in += in;
-        signalsCounter++;
+        incrementSignalCounter();
     }
     public void setIn(double in) {
         this.in = in;
@@ -63,7 +57,17 @@ public class Node {
     public void incrementInConnections() {
         inConnections++;
     }
-    public void resetSignalsCounter() {
+    private void resetSignalsCounter() {
         signalsCounter = 0;
+    }
+    private void incrementSignalCounter() {
+        signalsCounter++;
+    }
+    public void backwardsConnection() {
+        signalsCounter++;
+    }
+
+    public ArrayList<Node> getOut() {
+        return out;
     }
 }

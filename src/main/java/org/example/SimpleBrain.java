@@ -1,24 +1,32 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.Stack;
+
 public class SimpleBrain implements Constants {
-    private byte[] nodeGenes;
-    private Connection[] connections;
-    private Node[] nodes;
+    private final Node[] nodes;
     private Node moveLeftNode;
     private Node moveUpNode;
     private Node moveRightNode;
     private Node moveDownNode;
     private Node moveRandomNode;
-    private Node inputNode;
+    private Node xInputNode;
+    private Node yInputNode;
+    private Node biasNode;
     public SimpleBrain(byte[] nodeGenes, Connection[] connections) {
-        this.nodeGenes = nodeGenes;
-        this.connections = connections;
         nodes = new Node[nodeGenes.length];
         for (int i = 0; i < nodeGenes.length; i++) {
             nodes[i] = new Node(nodeGenes[i]);
             switch (nodeGenes[i]) {
-                case (Constants.inputNode):
-                    inputNode = nodes[i];
+                case (Constants.biasNode):
+                    biasNode = nodes[i];
+                    biasNode.setIn(1.0);
+                    break;
+                case (Constants.xInputNode):
+                    xInputNode = nodes[i];
+                    break;
+                case (Constants.yInputNode):
+                    yInputNode = nodes[i];
                     break;
                 case (Constants.moveLeftNode):
                     moveLeftNode = nodes[i];
@@ -43,16 +51,15 @@ public class SimpleBrain implements Constants {
                 nodes[connection.out].incrementInConnections();
             }
         }
+        setUpBackwardsConnections();
     }
-    public void excite(double in) {
-        if (inputNode != null) {
-            inputNode.setIn(in);
-            inputNode.excite();
-        }
-    }
-    public void cleanse() {
-        if (inputNode != null) {
-            inputNode.cleanse();
+    public void propagate(double[] in) {
+        if (xInputNode != null) {
+            xInputNode.setIn(in[0]);
+            yInputNode.setIn(in[1]);
+            xInputNode.excite();
+            yInputNode.excite();
+            biasNode.excite();
         }
     }
     public double getMoveLeftOutput() {
@@ -84,5 +91,27 @@ public class SimpleBrain implements Constants {
             return moveRandomNode.getIn();
         }
         else return 0.0;
+    }
+    private void setUpBackwardsConnections() {
+        ArrayList<Node> visited = new ArrayList<>(nodes.length);
+        Stack<Node> stack = new Stack<>();
+        helper(stack, visited, xInputNode);
+        helper(stack, visited, yInputNode);
+        helper(stack, visited, biasNode);
+    }
+    private void helper(Stack<Node> stack, ArrayList<Node> visited, Node start) {
+        if (stack.contains(start)) {
+            start.backwardsConnection();
+            return;
+        }
+        if (visited.contains(start)) {
+            return;
+        }
+        visited.add(start);
+        stack.push(start);
+        for (Node next: start.getOut()) {
+            helper(stack, visited, next);
+        }
+        stack.pop();
     }
 }
