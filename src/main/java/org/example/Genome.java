@@ -26,16 +26,10 @@ public class Genome {
         }
         HashMap<Integer, ArrayList<Integer>> otherGraph = ((Genome) o).simplify();
         HashMap<Integer, ArrayList<Integer>> thisGraph = simplify();
-        if (otherGraph.length != thisGraph.length || otherGraph[0].length != thisGraph[0].length) {
+        if (otherGraph.size() != thisGraph.size()) {
             return false;
         }
-        for (int i = 0; i < thisGraph.length; i++) {
-            for (int j = 0; j < thisGraph[i].length; j++) {
-                if (thisGraph[i][j] != otherGraph[i][j]) {
-                    return false;
-                }
-            }
-        }
+
         return true;
     }
     private HashMap<Integer, ArrayList<Integer>> simplify() {
